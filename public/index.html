@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  </head>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" />
+  <title>Bitcoin Tracker</title>
+  <body>
+    <div class="container">
+      <div class="header col-md-12">
+        <div class="row bg-info">
+          <div class="col">
+            <h1>Market</h1>
+            <h2 id="market"></h2>
+          </div>
+          <div class="col">
+            <h1>High</h1>
+            <h2 id="high-count"></h2>
+          </div>
+          <div class="col">
+            <h1>Low</h1>
+            <h2 id="low-count"></h2>
+          </div>
+        </div>
+      </div>
+      <div class="main col-md-12">
+        <div class="row">
+          <div class="col">
+            <h3 class="text-secondary">Recent Trades</h3>
+            <table class="table">
+                <tr>
+                  <th>Buy</th>
+                  <td>
+                  <p id="buy"></p>
+                  </td>
+                  <th>Sell</th>
+                  <td>
+                  <p id="sell"></p>
+                  </td>
+                </tr>
+              </thead>
+            </table>
+          </div>
+          <div class="col">
+            <h3 class="text-secondary">Trade Volume</h3>
+            <table class="table">
+              <tr>
+                <th>Volume</th>
+                  <td>
+                    <p id="volume"></p>
+                </td>
+             </tr>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="/socket.io/socket.io.js"></script>
+  </body>
+</html>

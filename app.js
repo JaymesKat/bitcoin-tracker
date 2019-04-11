@@ -7,18 +7,6 @@ var port = 8080;
 
 app.use(express.static(path.join(__dirname, "public")));
 
-io.on('connection', (socket) => {
-  console.log('New connection made');
-
-  socket.emit('message-from-server', {
-    greeting: 'Hello from Server'
-  });
-
-  socket.on('message-from-client', (msg) => {
-    console.log(msg);
-  })
-});
-
 server.listen(port, function() {
   console.log("Listening on port " + port);
 });

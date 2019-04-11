@@ -57,16 +57,17 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="/socket.io/socket.io.js"></script>
     <script>
-      let socket = io("http://localhost:8080");
-
-      socket.on('message-from-server', (evt) => {
-        document.body.appendChild(
-          document.createTextNode(evt.greeting)
-        );
-
-        socket.emit('message-from-client', {
-          greeting: 'Hello from Client'
-        });
+      let socket = io("https://websocket.btcchina.com/");
+      socket.emit('subscribe', 'marketdata_cnybtc');
+      socket.on('connect', () => {
+        socket.on('ticker', (data) => {
+          $('#market').text(data.ticker.market);
+          $('#high-count').text(data.ticker.high);
+          $('#low-count').text(data.ticker.low);
+          $('#buy').text(data.ticker.buy);
+          $('#sell').text(data.ticker.sell);
+          $('#volume').text(data.ticker.vol);
+        })
       });
     </script>
   </body>
